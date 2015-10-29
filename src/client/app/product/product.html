@@ -1,0 +1,27 @@
+<div flex>
+    <div>
+        <form name="formSearchOrder">
+            <md-content>
+                <div layout layout-sm="column" layout-padding>
+                    <md-input-container flex class="layout-padding-horizon">
+                        <label>产品名称</label>
+                        <input ng-model="vm.search.orderId">
+                    </md-input-container>
+                    <md-input-container flex class="layout-padding-horizon">
+                        <label>配件名称</label>
+                        <input ng-model="vm.search.CustomerName">
+                    </md-input-container>
+                    <md-input-container flex class="layout-padding-horizon">
+                        <label>价格区间</label>
+                        <input ng-model="vm.search.CustomerTel">
+                    </md-input-container>
+                    <div layout="row" layout-align="center center">
+                        <md-button type="button" class="md-raised md-primary"> 查询产品
+                        </md-button>
+                    </div>
+                </div>
+            </md-content>
+        </form>
+        <product-card ng-repeat="item in vm.products" product="item"></product-card>
+    </div>
+</div>

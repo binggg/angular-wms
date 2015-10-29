@@ -1,0 +1,120 @@
+<section>
+    <md-card-content>
+        <form name="addOrderForm">
+            <div layout="column">
+                <div flex>
+                    <md-subheader class="md-primary md-no-sticky">产品图片</md-subheader>
+                    <md-content>
+                        <ht-square-image
+                            result-image="vm.resultImage"
+                            change-on-fly="true"
+                            area-type="square"
+                            result-image-size="300"
+                            result-image-format="image/png"></ht-square-image>
+                    </md-content>
+                </div>
+                <div flex>
+                    <section>
+                        <md-subheader class="md-primary md-no-sticky">产品信息</md-subheader>
+                        <md-content layout-padding>
+                            <div layout="column">
+                                <md-input-container flex>
+                                    <label>产品名称</label>
+                                    <input ng-model="vm.customer.name" required>
+                                </md-input-container>
+                                <md-input-container flex="50">
+                                    <label>产品类型</label>
+                                    <md-select ng-model="vm.orderInfo.payway" required>
+                                        <md-option ng-repeat="type in vm.productTypes" value="{{type}}">{{type}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                        </md-content>
+                    </section>
+                    <section>
+                        <md-subheader class="md-primary md-no-sticky">添加配件</md-subheader>
+                        <div>
+                            <div layout-padding>
+                                <md-autocomplete
+                                    md-menu-class="product-suggestions"
+                                    ng-disabled="vm.chooseComponent.isDisabled"
+                                    md-no-cache="vm.chooseComponent.noCache"
+                                    md-selected-item="vm.chooseComponent.selectedItem"
+                                    md-search-text-change="vm.chooseComponent.searchTextChange(vm.chooseComponent.searchText)"
+                                    md-search-text="vm.chooseComponent.searchText"
+                                    md-selected-item-change="vm.chooseComponent.selectedItemChange(item)"
+                                    md-items="item in vm.chooseComponent.querySearch(vm.chooseComponent.searchText)"
+                                    md-item-text="item.name"
+                                    md-min-length="0"
+                                    placeholder="请输入配件名称进行搜索">
+                                    <md-item-template>
+                                        <md-list-item class="md-2-line">
+                                            <img ng-src="{{item.image}}" class="md-avatar" alt="{{ item.name }}"/>
+
+                                            <div class="md-list-item-text">
+                                                <h3 md-highlight-text="vm.chooseComponent.searchText"
+                                                    md-highlight-flags="i">
+                                                    {{item.name}}</h3>
+
+                                                <p>{{ item.price |currency:'￥' }}</p>
+                                            </div>
+                                        </md-list-item>
+                                    </md-item-template>
+                                    <md-not-found>
+                                        没有找到与 "{{vm.chooseComponent.searchText}}" 相关的配件.
+                                    </md-not-found>
+                                </md-autocomplete>
+                            </div>
+                            <md-card layout-padding layout="row">
+                                <div flex>
+                                    {{vm.components.length}}件配件
+                                </div>
+                                <div flex>
+                                    总金额：{{vm.totalPrice() | currency: '￥'}}
+                                </div>
+                            </md-card>
+                            <md-card layout-padding="" ng-if="vm.components.length">
+                                <div ng-repeat="component in vm.components">
+                                    <div layout layout-sm="column">
+                                        <div class="component-img-content">
+                                            <img ng-src="{{component.image}}" alt="{{component.name}}"/>
+                                        </div>
+                                        <md-input-container flex>
+                                            <label>配件名称</label>
+                                            <input ng-model="component.name" disabled>
+                                        </md-input-container>
+                                        <md-input-container flex>
+                                            <label>配件单价</label>
+                                            <input ng-model="component.price" disabled>
+                                        </md-input-container>
+                                        <md-input-container flex>
+                                            <label>数量</label>
+                                            <input ng-model="component.qty" type="number" required>
+                                        </md-input-container>
+                                        <md-input-container flex ng-class="'flex md-default-theme md-input-has-value'">
+                                            <label>小计</label>
+                                            <input ng-value="component.price * component.qty | currency: '￥'" disabled>
+                                        </md-input-container>
+                                        <div layout layout-align="center center">
+                                            <md-button class="md-warn" ng-click="vm.removeComponent($index)"
+                                                       type="button">
+                                                删除
+                                            </md-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </md-card>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <section>
+                <md-content>
+                    <md-button type="button" class="md-raised md-primary" ng-click="vm.submitOrderAdd()">提交订单
+                    </md-button>
+                </md-content>
+            </section>
+        </form>
+    </md-card-content>
+</section>

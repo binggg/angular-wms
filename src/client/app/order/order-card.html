@@ -1,0 +1,50 @@
+<md-card>
+    <div class="order-remark" ng-if="order.orderInfo.remark">
+        订单备注：{{order.orderInfo.remark}}
+    </div>
+    <md-card-content>
+        <div layout>
+            <div flex layout-padding>
+                订单号：{{order.orderInfo.serial}}
+                {{order.orderInfo.payway}}
+            </div>
+            <div flex>
+            </div>
+        </div>
+        <div layout="row" layout-md="column" layout-sm="column">
+            <div flex layout="column" flex-order-md="2" flex-order-sm="2">
+                <div ng-repeat="product in order.products">
+                    <div layout="row">
+                        <div flex="75" layout="row">
+                            <div class="component-img-content">
+                                <img ng-src="{{product.image}}" alt="{{product.name}}"/>
+                            </div>
+                            <div flex layout-padding>
+                                {{product.name}}
+                            </div>
+                        </div>
+                        <div flex="25" layout-padding>
+                            {{product.price | currency:'￥'}}
+                            <br>
+                            <span class="md-caption">
+                                （{{product.qty}} 件）
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div flex layout="row" flex-order-md="1" flex-order-sm="1">
+                <div flex layout-padding>
+                    {{order.customerInfo.name}}<br>
+                    {{order.customerInfo.tel}}
+                </div>
+                <div flex layout-padding>
+                    {{order.status}}
+                </div>
+                <div flex layout-padding>
+                    {{order.Totalprice | currency:'￥'}}
+                </div>
+            </div>
+        </div>
+    </md-card-content>
+</md-card>

@@ -1,0 +1,57 @@
+<div flex>
+    <div>
+        <form name="formSearchOrder">
+            <md-content>
+                <div layout layout-sm="column" layout-padding>
+                    <md-input-container flex class="layout-padding-horizon">
+                        <label>订单号</label>
+                        <input ng-model="vm.search.orderId">
+                    </md-input-container>
+                    <md-input-container flex class="layout-padding-horizon">
+                        <label>收货人姓名</label>
+                        <input ng-model="vm.search.CustomerName">
+                    </md-input-container>
+                    <md-input-container flex class="layout-padding-horizon">
+                        <label>电话</label>
+                        <input ng-model="vm.search.CustomerTel">
+                    </md-input-container>
+                    <md-input-container flex required="" class="layout-padding-horizon">
+                        <label>微信号</label>
+                        <input ng-model="vm.search.CustomerWechat">
+                    </md-input-container>
+                    <md-input-container flex class="layout-padding-horizon">
+                        <label>地址</label>
+                        <input ng-model="vm.search.CustomerAddress">
+                    </md-input-container>
+                    <div layout="row" layout-align="center center">
+                        <md-button type="button" class="md-raised md-primary"> 查询订单
+                        </md-button>
+                    </div>
+                </div>
+            </md-content>
+        </form>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="所有订单">
+                <md-card>
+                    <md-card-content layout="row">
+                        <div flex layout="row">
+                            <div flex="75" class="layout-padding-horizon md-body-2">商品</div>
+                            <div flex="25" class="layout-padding-horizon md-body-2">单价数量</div>
+                        </div>
+                        <div flex hide-sm hide-md layout="row">
+                            <div flex class="layout-padding-horizon md-body-2">买家</div>
+                            <div flex class="layout-padding-horizon md-body-2">订单状态</div>
+                            <div flex class="layout-padding-horizon md-body-2">实付金额</div>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <order-card ng-repeat="item in vm.orders" order="item"></order-card>
+            </md-tab>
+            <md-tab label="待发货订单"></md-tab>
+            <md-tab label="待生产订单"></md-tab>
+        </md-tabs>
+    </div>
+</div>
+<md-sidenav ui-view class="md-sidenav-right md-whiteframe-z2" md-component-id="right"
+            md-is-locked-open="vm.isRightOpen">
+</md-sidenav>

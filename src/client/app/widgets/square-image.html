@@ -1,0 +1,41 @@
+<style>
+    .crop-area {
+        /*background: #E4E4E9;*/
+        overflow: hidden;
+        height: 350px;
+    }
+
+    .file-input {
+        display: none;
+    }
+
+    .result-image {
+        background: #e2e2e7 url('images/no-image.svg') no-repeat;
+        background-size: cover;
+    }
+</style>
+<div layout="row" layout-sm="column">
+    <div flex
+         ng-show="isEditing"
+         layout="column"
+         layout-align="center center"
+         class="crop-area">
+        <input type="file" class="file-input" accept="image/*"/>
+        <img-crop image="myImage"
+                  result-image="resultImage"
+                  change-on-fly="changeOnFly"
+                  area-type="{{areaType}}"
+                  area-min-size="areaMinSize"
+                  result-image-size="resultImageSize"
+                  result-image-format="{{resultImageFormat}}"
+                  result-image-quality="resultImageQuality">
+        </img-crop>
+    </div>
+    <div flex="" layout="column" layout-align="center center">
+        <div><img class="result-image" ng-src="{{resultImage}}"/></div>
+    </div>
+</div>
+<div layout layout-align="center center">
+    <md-button class="md-raised fake-btn" type="button">选择图片</md-button>
+    <md-button ng-show="isEditing" class="md-raised confirm-btn md-primary" type="button">确认选择</md-button>
+</div>

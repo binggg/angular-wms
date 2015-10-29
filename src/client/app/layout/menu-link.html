@@ -1,0 +1,7 @@
+<md-button ng-click="vm.focusSection()" ng-href="{{section.url}}">
+    <md-icon md-font-icon="{{section.icon || 'mdi-chevron-right'}}" class="mdi md-icon-xs sidebar-menu-icon"></md-icon>
+    {{section.name}}
+    <span class="md-visually-hidden" ng-if="vm.isSelected()">
+        current page
+    </span>
+</md-button>

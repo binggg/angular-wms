@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/client/app/layout/sidebar.controller.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">./src/client/app/layout/sidebar.controller.js</span></h1>
+    <h2>
+        Statements: <span class="metric">58% <small>(29 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">14.81% <small>(4 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">66.67% <small>(6 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">58% <small>(29 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">./src/client/app/layout/</a> &#187; sidebar.controller.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function () {
+    'use strict';
+&nbsp;
+    angular
+        .module('app.layout')
+        .controller('SidebarController', SidebarController);
+&nbsp;
+    SidebarController.$inject = ['$state', 'dataservice', 'routerHelper', '_'];
+    /* @ngInject */
+    function SidebarController($state, dataservice, routerHelper, _) {
+        var vm = this;
+        var states = routerHelper.getStates();
+        vm.isCurrent = isCurrent;
+        vm.sections = [];
+        vm.isClosed = isClosed;
+        vm.toggle = toggle;
+&nbsp;
+        activate();
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function isClosed(section) {</span>
+<span class="cstat-no" title="statement not covered" >            return !section.open;</span>
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function toggle(section) {</span>
+<span class="cstat-no" title="statement not covered" >            var openOld = section.open;</span>
+<span class="cstat-no" title="statement not covered" >            for (var i in vm.sections) {</span>
+<span class="cstat-no" title="statement not covered" >                if (vm.sections) {</span>
+<span class="cstat-no" title="statement not covered" >                    var sec = vm.sections[i];</span>
+<span class="cstat-no" title="statement not covered" >                    if (sec.children) {</span>
+<span class="cstat-no" title="statement not covered" >                        for (var j in sec.children) {</span>
+<span class="cstat-no" title="statement not covered" >                            if (sec.children) {</span>
+<span class="cstat-no" title="statement not covered" >                                var child = sec.children[j];</span>
+<span class="cstat-no" title="statement not covered" >                                if (child.type === 'toggle' &amp;&amp; !openOld) {</span>
+<span class="cstat-no" title="statement not covered" >                                    child.open = false;</span>
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+<span class="cstat-no" title="statement not covered" >            section.open = !openOld;</span>
+        }
+&nbsp;
+        function activate() {
+            getNavRoutes();
+        }
+&nbsp;
+        function getNavRoutes() {
+            var tmpMenu = {};
+            //console.log(states);
+            states.filter(function (r) {
+                return r.settings;
+            }).map(function (state, index) {
+                    var parent = state.settings.parent;
+                    var group = state.settings.group;
+                    var content = {
+                        name: state.title,
+                        id: state.name,
+                        url: state.url,
+                        type: 'link'
+                    };
+&nbsp;
+                    group = group ? <span class="branch-0 cbranch-no" title="branch not covered" >group </span>: 'deault';
+&nbsp;
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (!tmpMenu[group]) {
+                        tmpMenu[group] = {
+                            name: state.settings.groupName,
+                            type: state.settings.groupName &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'heading',</span>
+                            children: []
+                        };
+                    }
+&nbsp;
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (parent) {
+<span class="cstat-no" title="statement not covered" >                        var toggle = _.where(tmpMenu[group].children, {</span>
+                            name: parent,
+                            type: 'toggle'
+                        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        if (!toggle.length) {</span>
+<span class="cstat-no" title="statement not covered" >                            tmpMenu[group].children.push({</span>
+                                name: parent,
+                                type: 'toggle',
+                                pages: []
+                            });
+                        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        var findToggle = _.where(tmpMenu[group].children, {</span>
+                            name: parent,
+                            type: 'toggle'
+                        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        findToggle[0].pages.push(content);</span>
+                    } else {
+                        tmpMenu[group].children.push(content);
+                    }
+                }
+            );
+&nbsp;
+            vm.sections = _.values(tmpMenu);
+            //console.log(vm.sections);
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function isCurrent(route) {</span>
+<span class="cstat-no" title="statement not covered" >            if (!route.title || !$state.current || !$state.current.title) {</span>
+<span class="cstat-no" title="statement not covered" >                return '';</span>
+            }
+<span class="cstat-no" title="statement not covered" >            var menuName = route.title;</span>
+<span class="cstat-no" title="statement not covered" >            return $state.current.title.substr(0, menuName.length) === menuName ? 'current' : '';</span>
+        }
+    }
+})
+();
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Sep 04 2015 10:20:11 GMT+0800 (中国标准时间)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

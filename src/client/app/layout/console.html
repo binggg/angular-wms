@@ -1,0 +1,55 @@
+<div layout="row" class="site-canvas" flex ng-cloak ng-controller="ConsoleController as vm">
+    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2 md-primary sidebar-content"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-sm') && vm.isLogged()">
+        <div ng-include="'app/layout/sidebar.html'"></div>
+    </md-sidenav>
+    <div layout="column" tabIndex="-1" role="main" flex>
+        <md-toolbar class="md-accent"  ng-hide="!vm.isLogged()">
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" aria-label="Menu" ng-click="vm.openLeftMenu()" hide-gt-sm>
+                    <md-icon md-font-icon="mdi mdi-menu" class="md-icon-xs"></md-icon>
+                </md-button>
+                <h1 ng-bind="title">
+                </h1>
+                <span flex></span>
+                <md-button class="md-icon-button" aria-label="More">
+                    <md-icon md-font-icon="mdi mdi-message-text-outline" class="md-icon-xs"></md-icon>
+                    <md-tooltip>
+                        消息
+                    </md-tooltip>
+                </md-button>
+                <md-menu>
+                    <md-button aria-label="More menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                        <md-icon md-menu-origin md-font-icon="mdi mdi-more" class="md-icon-xs"></md-icon>
+                        <md-tooltip>
+                            更多
+                        </md-tooltip>
+                    </md-button>
+                    <md-menu-content width="3">
+                        <md-menu-item>
+                            <md-button ng-click="vm.logout()">
+                                <span>退出登录</span>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+        </md-toolbar>
+        <md-content md-scroll-y flex class="site-content">
+            <div ui-view class="shuffle-animation">
+            </div>
+            <div ngplus-overlay
+                 ngplus-overlay-delay-in="50"
+                 ngplus-overlay-delay-out="700"
+                 ngplus-overlay-animation="dissolve-animation">
+                <div class="progress-container" layout="column" layout-align="center center">
+                    <md-progress-circular class="md-primary" md-mode="indeterminate"></md-progress-circular>
+                    <br>
+                    <br>
+                    <div class="page-spinner-message overlay-message">{{vm.busyMessage}}</div>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

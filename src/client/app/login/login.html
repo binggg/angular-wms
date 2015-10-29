@@ -1,0 +1,29 @@
+<div layout="row" layout-align="center center" class="loginContainer">
+    <md-card class="loginBox">
+        <md-card-content>
+            <div ng-controller="LoginController as vm" layout="column">
+                <md-content class="md-padding">
+                    <form ng-submit="vm.login($event)" name="loginForm">
+                        <md-input-container class="md-icon-float">
+                            <label>用户名</label>
+                            <md-icon md-font-icon="mdi mdi-account-circle" class="md-icon-xs"></md-icon>
+                            <input ng-model="vm.username" type="text" required/>
+                        </md-input-container>
+                        <md-input-container class="md-icon-float">
+                            <label>密码</label>
+                            <md-icon md-font-icon="mdi mdi-lock" class="md-icon-xs"></md-icon>
+                            <input ng-model="vm.password" name="password" type="password" required/>
+                            <!--<div ng-messages="loginForm.password.$error">-->
+                            <!--<div ng-message="required">必须输入密码</div>-->
+                            <!--</div>-->
+                        </md-input-container>
+                        <div layout="row" layout-align="center center" flex="100">
+                            <md-button class="md-raised md-primary" type="submit" flex="45">登录</md-button>
+                            <md-button class="md-raised" type="reset" flex="45">重填</md-button>
+                        </div>
+                    </form>
+                </md-content>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

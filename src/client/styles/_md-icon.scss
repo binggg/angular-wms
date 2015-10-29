@@ -1,0 +1,17 @@
+$md-icon-sizes: (
+    xs: 24px,
+    sm: 36px,
+    lg: 48px,
+    xl: 60px
+);
+
+@mixin icon-size($map) {
+    @each $size, $font-size in $map {
+        .md-icon-#{$size} {
+            font-size: $font-size;
+        }
+    }
+}
+
+
+@include icon-size($md-icon-sizes);

@@ -1,0 +1,44 @@
+<md-card layout-padding>
+    <md-content layout-padding>
+        <md-list-item class="">
+            <img ng-src="{{product.image}}" class="md-avatar" alt="{{product.name}}"/>
+            <h3 flex>{{ product.name }}</h3>
+            <p flex="10">{{product.price | currency : '￥'}}</p>
+            {{count}}
+            <md-button class="md-icon-button" aria-label="More" ng-click="show = !show">
+                <md-icon md-font-icon="mdi mdi-unfold-more" class="md-icon-xs"></md-icon>
+                <md-tooltip>
+                    查看配件
+                </md-tooltip>
+            </md-button>
+        </md-list-item>
+    </md-content>
+    <section class="sub-content" ng-show="show">
+        <div layout="row" style="padding: 16px;" >
+            <div style="width: 56px">
+                图片
+            </div>
+            <div flex layout="row">
+                <div flex="">配件名称</div>
+                <div flex="20">单价</div>
+                <div flex="20" style="text-align: right">数量</div>
+            </div>
+        </div>
+        <md-list-item class="" ng-repeat="component in product.components">
+            <img ng-src="{{component.image}}" class="md-avatar" alt="{{component.name}}"/>
+            <div flex class="md-list-item-text">
+                <div layout="row">
+                    <div flex>
+                        <h3>{{ component.name }}</h3>
+                    </div>
+                    <div flex="20">
+                        <p>{{component.price | currency : '￥'}}</p>
+                    </div>
+                    <div flex="20" style="text-align: right;">
+                        <p>{{component.qty}}</p>
+                    </div>
+                </div>
+            </div>
+        </md-list-item>
+    </section>
+</md-card>

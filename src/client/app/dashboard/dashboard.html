@@ -1,0 +1,30 @@
+<md-card>
+    <md-subheader>Online Friends</md-subheader>
+    <md-card-content>
+        <div class="widget-content text-center text-info">
+            <table class="table table-condensed table-striped">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="p in vm.people">
+                    <td>{{p.firstName}}</td>
+                    <td>{{p.lastName}}</td>
+                    <td>{{p.age}}</td>
+                    <td>{{p.location}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </md-card-content>
+
+    <div class="md-actions" layout="row" layout-align="end center">
+        <md-button>Action 1</md-button>
+        <md-button>Action 2</md-button>
+    </div>
+</md-card>

@@ -1,0 +1,163 @@
+<section>
+    <md-card-content>
+        <form name="addOrderForm">
+            <section>
+                <md-subheader class="md-primary md-no-sticky">买家信息</md-subheader>
+                <md-content layout-padding>
+                    <div layout layout-sm="column">
+                        <md-input-container flex="15" class="layout-padding-horizon">
+                            <label>收货人姓名</label>
+                            <input ng-model="vm.customer.name" required>
+                        </md-input-container>
+                        <md-input-container flex="20" class="layout-padding-horizon">
+                            <label>电话</label>
+                            <input ng-model="vm.customer.tel" required>
+                        </md-input-container>
+                        <md-input-container flex="20" required="" class="layout-padding-horizon">
+                            <label>微信号</label>
+                            <input ng-model="vm.customer.wechat" required>
+                        </md-input-container>
+                        <md-input-container flex class="layout-padding-horizon">
+                            <label>地址</label>
+                            <input ng-model="vm.customer.address" required>
+                        </md-input-container>
+                    </div>
+                </md-content>
+            </section>
+            <section>
+                <md-subheader class="md-primary md-no-sticky">订单信息</md-subheader>
+                <md-content layout-padding>
+                    <div layout layout-sm="column">
+                        <md-input-container flex class="layout-padding-horizon">
+                            <label>支付方式</label>
+                            <md-select ng-model="vm.orderInfo.payway" required>
+                                <md-option ng-repeat="payway in vm.payways" value="{{payway}}">{{payway}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container flex class="layout-padding-horizon">
+                            <label>出单微信号</label>
+                            <md-select ng-model="vm.orderInfo.wechat" required>
+                                <md-option ng-repeat="wechat in vm.wechats" value="{{wechat}}">{{wechat}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container flex class="layout-padding-horizon">
+                            <label>买家备注</label>
+                            <input ng-model="vm.orderInfo.remark">
+                        </md-input-container>
+                    </div>
+                </md-content>
+            </section>
+            <section>
+                <md-subheader class="md-primary md-no-sticky">产品信息</md-subheader>
+                <div>
+                    <div layout-padding>
+                        <md-autocomplete
+                            md-menu-class="product-suggestions"
+                            ng-disabled="vm.chooseProduct.isDisabled"
+                            md-no-cache="vm.chooseProduct.noCache"
+                            md-selected-item="vm.chooseProduct.selectedItem"
+                            md-search-text-change="vm.chooseProduct.searchTextChange(vm.chooseProduct.searchText)"
+                            md-search-text="vm.chooseProduct.searchText"
+                            md-selected-item-change="vm.chooseProduct.selectedItemChange(item)"
+                            md-items="item in vm.chooseProduct.querySearch(vm.chooseProduct.searchText)"
+                            md-item-text="item.name"
+                            md-min-length="0"
+                            placeholder="请输入产品名称进行搜索">
+                            <md-item-template>
+                                <md-list-item class="md-2-line">
+                                    <img ng-src="{{item.image}}" class="md-avatar" alt="{{ item.name }}"/>
+
+                                    <div class="md-list-item-text">
+                                        <h3 md-highlight-text="vm.chooseProduct.searchText" md-highlight-flags="i">
+                                            {{item.name}}</h3>
+
+                                        <p>{{ item.price }}</p>
+                                    </div>
+                                </md-list-item>
+                            </md-item-template>
+                            <md-not-found>
+                                没有找到与 "{{vm.chooseProduct.searchText}}" 相关的产品.
+                            </md-not-found>
+                        </md-autocomplete>
+                    </div>
+                    <md-card layout-padding layout="row">
+                        <div flex>
+                            {{vm.products.length}}件产品
+                        </div>
+                        <div flex>
+                            总金额：{{vm.totalProSell() | currency: '￥'}}
+                        </div>
+                        <div flex>
+                            总成本：{{vm.totalProCost() | currency: '￥'}}
+                        </div>
+                    </md-card>
+                    <md-card ng-repeat="product in vm.products track by $index" layout-padding>
+                        <md-content>
+                            <div layout layout-sm="column">
+                                <div class="component-img-content">
+                                    <img ng-src="{{product.image}}" alt="{{product.name}}"/>
+                                </div>
+                                <md-input-container flex>
+                                    <label>产品名称</label>
+                                    <input ng-model="product.name" disabled/>
+                                </md-input-container>
+                                <md-input-container flex>
+                                    <label>产品单价</label>
+                                    <input ng-model="product.price" type="number" required/>
+                                </md-input-container>
+                                <md-input-container flex class="md-input-has-value">
+                                    <label>产品数量</label>
+                                    <input ng-model="product.qty" type="number" required>
+                                </md-input-container>
+                                <md-input-container flex ng-class="'md-input-has-value'">
+                                    <label>单件成本小计</label>
+                                    <input ng-value="product.cost()|currency:'￥'" disabled>
+                                </md-input-container>
+                            </div>
+                        </md-content>
+                        <section class="sub-content">
+                            <div ng-repeat="component in product.components">
+                                <div layout layout-sm="column">
+                                    <div class="component-img-content">
+                                        <img ng-src="{{component.image}}" alt="{{component.name}}"/>
+                                    </div>
+                                    <md-input-container flex>
+                                        <label>配件名称</label>
+                                        <input ng-model="component.name" disabled>
+                                    </md-input-container>
+                                    <md-input-container flex>
+                                        <label>配件单价</label>
+                                        <input ng-model="component.price" disabled>
+                                    </md-input-container>
+                                    <md-input-container flex>
+                                        <label>数量</label>
+                                        <input ng-model="component.qty" type="number" required>
+                                    </md-input-container>
+                                    <md-input-container flex ng-class="'md-default-theme md-input-has-value'">
+                                        <label>小计</label>
+                                        <input ng-value="component.price * component.qty | currency: '￥'" disabled>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="md-actions" layout="row" layout-align="end center">
+                            <md-input-container flex>
+                                <label>产品备注</label>
+                                <input ng-model="product.remark"/>
+                            </md-input-container>
+                            <md-button class="md-warn" ng-click="vm.removeProduct($index)">删除产品</md-button>
+                        </div>
+                    </md-card>
+                </div>
+            </section>
+            <section>
+                <md-content>
+                    <md-button type="button" class="md-raised md-primary" ng-click="vm.submitOrderAdd()">提交订单
+                    </md-button>
+                </md-content>
+            </section>
+        </form>
+    </md-card-content>
+</section>

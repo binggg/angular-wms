@@ -1,0 +1,164 @@
+/************
+ * DOCS MENU
+ ************/
+
+.site-sidenav {
+    background: $color-sidebar-bg;
+}
+
+.site-sidenav md-content {
+    background: transparent;
+}
+
+.site-sidenav,
+.site-sidenav.md-locked-open-add-active,
+.site-sidenav.md-locked-open {
+    width: 256px;
+    min-width: 256px;
+    max-width: 256px;
+    overflow-x: hidden;
+}
+
+.site-sidenav > * {
+    min-width: 218px;
+}
+
+.docs-menu,
+.docs-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.docs-menu li {
+    margin: 0;
+}
+
+.docs-menu > li:nth-child(1) {
+    border-top: none;
+}
+
+.md-whiteframe-glow-z1 {
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 0px 2px 2px rgba(0, 0, 0, 0.098),
+    0px 0px 5px 1px rgba(0, 0, 0, 0.084);
+}
+
+.docs-menu > li {
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.docs-menu .md-button {
+    border-radius: 0;
+    color: rgba(255,255,255,.72);
+    cursor: pointer;
+    display: block;
+    align-items: inherit;
+    line-height: 40px;
+    margin: 0;
+    max-height: 40px;
+    overflow: hidden;
+    padding: 0px 16px;
+    text-align: left;
+    text-decoration: none;
+    white-space: normal;
+    width: 100%;
+}
+
+.docs-menu .md-button:hover,
+.docs-menu .md-button:focus {
+    background: rgba(255, 255, 255, .12) !important;
+    color: #fff;
+}
+
+.docs-menu .md-button md-icon {
+    color: rgba(255, 255, 255, .72);
+}
+
+.docs-menu md-select {
+
+    /* Override md-select margins.  With margins the menu will look incorrect and causes mobile list
+       to not be scrollable.
+     */
+    margin: 0;
+    width: 100%;
+}
+
+.docs-menu md-select md-select-label {
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+.docs-menu md-select md-select-label span {
+    margin-right: auto;
+    padding-left: 13px;
+}
+
+.docs-menu md-select .md-select-icon {
+    margin-right: 28px;
+}
+
+.docs-menu button.md-button::-moz-focus-inner {
+    padding: 0;
+}
+
+.docs-menu .md-button.active {
+    background: map_get($amber, 400);
+}
+
+.menu-heading {
+    display: block;
+    line-height: 32px;
+    margin: 0;
+    padding: 8px 16px 0;
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.34)
+}
+
+.docs-menu li.parentActive,
+.docs-menu li.parentActive .menu-toggle-list {
+    //background-color: #2C80D2 !important;
+}
+
+.menu-toggle-list {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    -webkit-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+    -webkit-transition-property: height;
+    -moz-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+    -moz-transition-property: height;
+    transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+    transition-property: height;
+}
+
+.docs-menu .menu-toggle-list a.md-button {
+    display: block;
+    padding: 0 16px 0 32px;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    font-weight: 500;
+}
+
+ul#docs-menu-Directives {
+    margin-bottom: 20px;
+}
+
+.md-button-toggle .md-toggle-icon {
+    display: block;
+    margin-left: auto;
+    speak: none;
+    vertical-align: middle;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+}
+
+.md-button-toggle .md-toggle-icon.toggled {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+}
+
+/* End Docs Menu */

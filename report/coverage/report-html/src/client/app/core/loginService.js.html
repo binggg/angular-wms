@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/client/app/core/loginService.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">./src/client/app/core/loginService.js</span></h1>
+    <h2>
+        Statements: <span class="metric">57.45% <small>(27 / 47)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">33.33% <small>(4 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">43.75% <small>(7 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">57.45% <small>(27 / 47)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">./src/client/app/core/</a> &#187; loginService.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function () {
+    'use strict';
+&nbsp;
+    angular
+        .module('app.core')
+        .factory('loginService', loginService)
+        .run(appRun);
+&nbsp;
+    appRun.$inject = ['$rootScope', '$urlRouter', 'loginService', 'logger'];
+    /* @ngInject */
+    loginService.$inject = ['$http', '$q', '$state', '$rootScope', 'exception', 'logger'];
+    /* @ngInject */
+    function loginService($http, $q, $state, $rootScope, exception, logger) {
+        var isLogged = false;
+&nbsp;
+        var service = {
+            get logged() {
+                return isLogged;
+            },
+            isPublic: isPublic,
+            goToLogin: goToLogin,
+            login: login,
+            logout: logout
+        };
+&nbsp;
+        return service;
+&nbsp;
+        function isPublic(state) {
+            return state.public;
+        }
+&nbsp;
+        function goToLogin() {
+            $state.go('login');
+<span class="cstat-no" title="statement not covered" >            logger.info('请先登录');</span>
+<span class="cstat-no" title="statement not covered" >            return $q.when();</span>
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function login() {</span>
+<span class="cstat-no" title="statement not covered" >            return $http.get('/api/people')</span>
+                .then(success)
+                .catch(fail);
+&nbsp;
+<span class="fstat-no" title="function not covered" >            function success(response) {</span>
+<span class="cstat-no" title="statement not covered" >                if (true) {</span>
+<span class="cstat-no" title="statement not covered" >                    isLogged = true;</span>
+<span class="cstat-no" title="statement not covered" >                    logger.success('登录成功');</span>
+<span class="cstat-no" title="statement not covered" >                    redirect();</span>
+<span class="cstat-no" title="statement not covered" >                    return response.data;</span>
+                }
+            }
+&nbsp;
+<span class="fstat-no" title="function not covered" >            function redirect() {</span>
+<span class="cstat-no" title="statement not covered" >                $state.go($rootScope.redirectState || 'dashboard');</span>
+            }
+&nbsp;
+<span class="fstat-no" title="function not covered" >            function fail(e) {</span>
+<span class="cstat-no" title="statement not covered" >                return exception.catcher('XHR Failed for getPeople')(e);</span>
+            }
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function logout() {</span>
+<span class="cstat-no" title="statement not covered" >            if (isLogged) {</span>
+<span class="cstat-no" title="statement not covered" >                return $http.get('/api/people')</span>
+                    .then(success)
+                    .catch(fail);
+            }
+&nbsp;
+<span class="fstat-no" title="function not covered" >            function success(response) {</span>
+<span class="cstat-no" title="statement not covered" >                if (true) {</span>
+<span class="cstat-no" title="statement not covered" >                    isLogged = false;</span>
+<span class="cstat-no" title="statement not covered" >                    logger.success('退出登录成功')</span>
+<span class="cstat-no" title="statement not covered" >                    redirect();</span>
+<span class="cstat-no" title="statement not covered" >                    return response.data;</span>
+                }
+            }
+&nbsp;
+<span class="fstat-no" title="function not covered" >            function redirect() {</span>
+<span class="cstat-no" title="statement not covered" >                $state.go('login');</span>
+            }
+&nbsp;
+<span class="fstat-no" title="function not covered" >            function fail(e) {</span>
+<span class="cstat-no" title="statement not covered" >                return exception.catcher('XHR Failed for getPeople')(e);</span>
+            }
+        }
+    }
+&nbsp;
+    function appRun($rootScope, $urlRouter, loginService, logger) {
+        $rootScope.$on('$stateChangeStart', function (e, toState) {
+            if (!loginService.logged &amp;&amp; !loginService.isPublic(toState)) {
+                e.preventDefault();
+                console.log(toState);
+&nbsp;
+                loginService.goToLogin()
+                    .then(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                        $rootScope.redirectState = toState.name;</span>
+                    })
+            }
+        })
+    }
+})();
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Sep 04 2015 10:20:11 GMT+0800 (中国标准时间)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
